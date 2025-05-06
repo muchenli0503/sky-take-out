@@ -22,4 +22,7 @@ public interface EmployeeService {
 
     void block(Integer status, Long id);
 
+    Employee getbyId(Long id);
+
+    void update(EmployeeDTO employeeDTO);
 }
