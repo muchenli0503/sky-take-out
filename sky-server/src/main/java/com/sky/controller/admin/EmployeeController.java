@@ -94,6 +94,21 @@ public class EmployeeController {
         return Result.success(pageResult);
     }
 
+    /**
+     * 启用禁用员工ID
+     * @param status
+     * @param id
+     * @return
+     */
+    @PostMapping("/status/{status}")
+    @ApiOperation("启用禁用账号")
+    //查询类会带范型，非查询类可以不带,因为返回code就行了data可以是空的
+    public Result block(@PathVariable Integer status, Long id){
+        log.info("启用禁用员工账号:{},{}",status,id);
+        employeeService.block(status,id);
+        return Result.success();
+    }
+
 
 
 }

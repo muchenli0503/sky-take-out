@@ -93,4 +93,23 @@ public class EmployeeServiceImpl implements EmployeeService {
         return new PageResult(total,records);
     }
 
+    /**
+     * 启用禁用员工
+     * @param status
+     * @param id
+     */
+    @Override
+    public void block(Integer status, Long id){
+        //update employee set status=? where id=?
+//        Employee employee = new Employee();
+//        employee.setStatus(status);
+//        employee.setId(id);
+        //运用Employee类的@Builder注解，在此获得构建器对象
+        Employee employee = Employee.builder()
+                .id(id)
+                .status(status)
+                .build();
+        EmployeeMapper.update(employee);
+    }
+
 }
